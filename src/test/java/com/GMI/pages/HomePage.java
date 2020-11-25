@@ -44,11 +44,14 @@ public class HomePage {
 
 
     public void clickTo(String button){
-    WebElement element = Driver.getDriver().findElement(By.xpath("//span[contains(text(),'"+button+"')]"));
-       if (!element.isEnabled()){
-         element=  Driver.getDriver().findElement(By.xpath("(//span[contains(text(),'Sign in')])[3]"));
-       }
+    WebElement element=Driver.getDriver().findElement(By.xpath("//span[contains(text(),'"+button+"')]"));
+    if(element.isDisplayed()){
         element.click();
+    } else{
+         element= Driver.getDriver().findElement(By.xpath("(//span[contains(text(),'Sign in')])[3]"));
+         element.click();
+       }
+
 
     }
 
