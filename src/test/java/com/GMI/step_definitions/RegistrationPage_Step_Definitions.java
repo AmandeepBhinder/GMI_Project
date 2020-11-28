@@ -6,10 +6,8 @@ import com.GMI.utilities.ConfigurationReader;
 import com.GMI.utilities.Driver;
 import com.GMI.utilities.MyMethods;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
+
 
 import java.util.List;
 import java.util.Map;
