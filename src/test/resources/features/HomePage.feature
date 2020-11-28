@@ -41,9 +41,14 @@ Feature: As a user I should be able to navigate to home page
     And Click to "Account menu"
     And Click to "User Info" button
     And User fill out "<input>" boxes with valid "<info>" credentials
+    And Click to "langKey" dropdown
 
     Examples:
       | input     | info             |
       | firstName | Ancelina         |
       | lastName  | culi             |
       | email     | unkown@gmail.com |
+
+
+    Scenario Outline: System should not allow to make updates with invalid credentials
+      Examples:

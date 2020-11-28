@@ -1,9 +1,13 @@
 package com.GMI.utilities;
 
 import com.GMI.pages.LandingPage;
+import io.cucumber.java.eo.Se;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class MyMethods {
 
@@ -38,6 +42,16 @@ public class MyMethods {
     }
 
 
+    public static void selectDropDown(String dropdown){
+        WebElement element = Driver.getDriver().findElement(By.xpath("//select[@id='" + dropdown + "']"));
+        Select select = new Select(element);
+        List<WebElement> options = select.getOptions();
+        for (WebElement each : options){
+            System.out.println(each.getText());
+        }
+
+
+    }
 
 
 //end
