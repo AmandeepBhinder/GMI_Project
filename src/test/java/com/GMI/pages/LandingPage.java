@@ -65,11 +65,12 @@ public class LandingPage {
     }
 
 
-    public void isMessageDisplayed(String message){
-        WebElement element = Driver.getDriver().findElement(By.xpath("//div[@class='modal-content']//span[contains(text(),'"+message+"')]"));
+//    public void isMessageDisplayed(String message){
+//        WebElement element = Driver.getDriver().findElement(By.xpath("//div[@class='modal-content']//span[contains(text(),'"+message+"')]"));
+//
+//
+//    }
 
-
-    }
 
 
 
