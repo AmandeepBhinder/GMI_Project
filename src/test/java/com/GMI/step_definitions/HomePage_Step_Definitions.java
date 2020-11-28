@@ -30,4 +30,14 @@ public class HomePage_Step_Definitions {
     public void userFillOutBoxesWithValidCredentials(String input, String validInfo) {
         MyMethods.fillBoxes(input, validInfo);
     }
+
+//    @And("Check available language options")
+//    public void checkAvailableLanguageOptions() {
+//
+//    }
+
+    @And("Click to {string} dropdown")
+    public void clickToDropdown(String dropdown) {
+        MyMethods.selectDropDown(dropdown);
+    }
 }
