@@ -123,10 +123,7 @@ public class RegistrationPage {
 
 
 
-public void fillBoxes(String input, String info){
-        Driver.waitForVisibility(   Driver.getDriver().findElement(By.xpath("//input[@id='"+input+"']")),3).sendKeys(info);
 
-}
     public void enterInfo(String input, String info){
    Driver.getDriver().findElement(By.xpath("//input[@id='"+input+"']")).sendKeys(info);
 

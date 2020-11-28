@@ -34,3 +34,16 @@ Feature: As a user I should be able to navigate to home page
       | jdfkbsdfjs322 | hasemployee  | Please check your credentials and try again. |
       | hasemployee   | ajkfnas      | Did you forget your password?                |
       | jsdfkaj       | quuqhhfn312. | Register a new account                       |
+
+
+  Scenario Outline: User info segment should be editable on Homepage
+    When User login
+    And Click to "Account menu"
+    And Click to "User Info" button
+    And User fill out "<input>" boxes with valid "<info>" credentials
+
+    Examples:
+      | input     | info             |
+      | firstName | Ancelina         |
+      | lastName  | culi             |
+      | email     | unkown@gmail.com |
