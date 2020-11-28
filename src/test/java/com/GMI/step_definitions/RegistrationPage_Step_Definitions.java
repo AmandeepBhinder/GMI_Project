@@ -4,6 +4,7 @@ import com.GMI.pages.LandingPage;
 import com.GMI.pages.RegistrationPage;
 import com.GMI.utilities.ConfigurationReader;
 import com.GMI.utilities.Driver;
+import com.GMI.utilities.MyMethods;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -131,8 +132,8 @@ public class RegistrationPage_Step_Definitions {
     }
 
     @And("Verify {string} message is displayed")
-    public void verifyMessageIsDisplayed(String defaultMessage) {
-        registrationPage.getDefaultMessage(defaultMessage);
+    public void verifyMessageIsDisplayed(String Message) {
+       MyMethods.getDefaultMessage(Message);
     }
 
 //end

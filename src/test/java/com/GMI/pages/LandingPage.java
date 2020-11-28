@@ -34,6 +34,9 @@ public class LandingPage {
     @FindBy(xpath =" //*[text()='Cancel']")
     public WebElement cancelButton;
 
+    @FindBy(xpath = "//div[@class='modal-content']//span[contains(text(),'Did you forget your password?')]")
+    public WebElement alertMessages;
+
     @FindBy(xpath ="//span[contains(text(),'Operations')]")
     public WebElement myOperations;
 
@@ -59,6 +62,13 @@ public class LandingPage {
         Driver.waitAndSendText(username,userName,3);
         Driver.waitAndSendText(password,passWord,3);
         Driver.verifyElementDisplayed(cancelButton);
+    }
+
+
+    public void isMessageDisplayed(String message){
+        WebElement element = Driver.getDriver().findElement(By.xpath("//div[@class='modal-content']//span[contains(text(),'"+message+"')]"));
+
+
     }
 
 

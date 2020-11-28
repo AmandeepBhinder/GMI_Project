@@ -65,20 +65,11 @@ public class RegistrationPage {
 
 
 
-    public void getDefaultMessage(String message){
-        WebElement element = Driver.getDriver().findElement(By.xpath("//span[contains(text(),'" + message + "')]"));
 
-       String actual = element.getText();
-        System.out.println(actual);
-
-        Assert.assertTrue("message is not displayed ",actual.contains(message));
-
-
-    }
 
     public void getErrorMessage(String input, String credentials ,String errorMessage){
         WebElement element =   Driver.getDriver().findElement(By.xpath("//input[@id='"+input+"']"));
-     element.sendKeys(credentials);
+        element.sendKeys(credentials);
         firstName.click();
         WebElement invalidMessage =  Driver.getDriver().findElement(By.xpath("//div[@class='text-danger form-group']//div[.='"+errorMessage+"']"));
         System.out.println("entered ===> "+credentials+ " errorMessage ===> "+ errorMessage );

@@ -10,6 +10,7 @@ public class HomePage_Step_Definitions {
     public void verifyIsDisplayed(String fullName) {
 
         homePage.verifyFullName(fullName);
+
     }
 
 
