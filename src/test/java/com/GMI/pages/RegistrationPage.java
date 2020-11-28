@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ public class RegistrationPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    SoftAssert soft=new SoftAssert();
     Faker faker = new Faker();
 
 
@@ -54,7 +56,7 @@ public class RegistrationPage {
 
     @FindBy(xpath = "//ul[@id='strengthBar']")
     public WebElement passwordStrength;
-    @FindBy(xpath = "//button[@id='register-submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement register;
     @FindBy(xpath = "//span[contains(text(),'If you want to ')]")
     public WebElement YouCanTryTheDefaultAcco;
@@ -68,12 +70,17 @@ public class RegistrationPage {
 
 
     public void getErrorMessage(String input, String credentials ,String errorMessage){
+
         WebElement element =   Driver.getDriver().findElement(By.xpath("//input[@id='"+input+"']"));
+        element.clear();
         element.sendKeys(credentials);
-        firstName.click();
-        WebElement invalidMessage =  Driver.getDriver().findElement(By.xpath("//div[@class='text-danger form-group']//div[.='"+errorMessage+"']"));
+        //Driver.scrollToElement(register);
+        //div[@class='text-danger form-group']
+        register.click();
+        WebElement invalidMessage =  Driver.getDriver().findElement(By.xpath("//div[.='"+errorMessage+"']"));
         System.out.println("entered ===> "+credentials+ " errorMessage ===> "+ errorMessage );
-        Assert.assertTrue(invalidMessage.getText().contains(errorMessage));
+
+        soft.assertTrue(invalidMessage.getText().contains(errorMessage),"FAILED!!! Invalid Error Message didn't Displayed.");
     }
 
     public void setSsn(String ssnNumber){

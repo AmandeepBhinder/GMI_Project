@@ -46,6 +46,7 @@ Feature: As a user I should be able to register
       | email       | janny@gmail   | This field is invalid               |
       | email       | janny@gmail.  | This field is invalid               |
       | email       | jannygmail.co | This field is invalid               |
+#      | email       | janny@gmail.co | This field is invalid               |
 
 
 
