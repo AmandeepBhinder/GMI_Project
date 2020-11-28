@@ -1,6 +1,6 @@
 package com.GMI.utilities;
 
-import com.GMI.pages.HomePage;
+import com.GMI.pages.LandingPage;
 import com.google.common.base.Function;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -209,6 +209,7 @@ public class Driver {
      * @param element
      */
     public static void verifyElementDisplayed(WebElement element) {
+        waitForVisibility(element,4);
         try {
             assertTrue("Element not visible: " + element, element.isDisplayed());
         } catch (NoSuchElementException e) {
@@ -423,63 +424,63 @@ public class Driver {
     }
 
     public static  void iAmOnHomePage() {
-        HomePage homePage = new HomePage();
+        LandingPage landingPage = new LandingPage();
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-    homePage.clickAccntMenu();
-    homePage.clickTo("Sign in");
+    landingPage.clickAccntMenu();
+    landingPage.clickTo("Sign in");
 
     }
     public static void login (String role) {
-        HomePage homePage = new HomePage();
+        LandingPage landingPage = new LandingPage();
         if (role.equals("Employee")) {
-            iAmOnHomePage();
-            homePage.username.sendKeys(ConfigurationReader.getProperty("EmployeeUsername"));
-            homePage.password.sendKeys(ConfigurationReader.getProperty("EmployeePassword"));
-            Driver.waitForVisibility(homePage.cancelButton,5);
-            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", homePage.cancelButton.isDisplayed());
+           // iAmOnHomePage();
+            landingPage.username.sendKeys(ConfigurationReader.getProperty("EmployeeUsername"));
+            landingPage.password.sendKeys(ConfigurationReader.getProperty("EmployeePassword"));
+            Driver.waitForVisibility(landingPage.cancelButton,5);
+            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", landingPage.cancelButton.isDisplayed());
             System.out.println("Cancel button is Displayed");
-            homePage.submit.click();
+            landingPage.submit.click();
             Driver.wait(2);
             //Driver.closeDriver();
         } else if (role.equals("Admin")) {
-            iAmOnHomePage();
-            homePage.username.sendKeys(ConfigurationReader.getProperty("AdminUsername"));
-            homePage.password.sendKeys(ConfigurationReader.getProperty("AdminPassword"));
-            Driver.waitForVisibility(homePage.cancelButton,5);
-            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", homePage.cancelButton.isDisplayed());
+           // iAmOnHomePage();
+            landingPage.username.sendKeys(ConfigurationReader.getProperty("AdminUsername"));
+            landingPage.password.sendKeys(ConfigurationReader.getProperty("AdminPassword"));
+            Driver.waitForVisibility(landingPage.cancelButton,5);
+            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", landingPage.cancelButton.isDisplayed());
             System.out.println("Cancel button is Displayed");
-            homePage.submit.click();
+            landingPage.submit.click();
             Driver.wait(2);
             //Driver.closeDriver();
         } else if (role.equals("Customer")) {
-            iAmOnHomePage();
-            homePage.username.sendKeys(ConfigurationReader.getProperty("CustomerUsername"));
-            homePage.password.sendKeys(ConfigurationReader.getProperty("CustomerPassword"));
-            Driver.waitForVisibility(homePage.cancelButton,5);
-            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", homePage.cancelButton.isDisplayed());
+           // iAmOnHomePage();
+            landingPage.username.sendKeys(ConfigurationReader.getProperty("CustomerUsername"));
+            landingPage.password.sendKeys(ConfigurationReader.getProperty("CustomerPassword"));
+            Driver.waitForVisibility(landingPage.cancelButton,5);
+            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", landingPage.cancelButton.isDisplayed());
             System.out.println("Cancel button is Displayed");
-            homePage.submit.click();
+            landingPage.submit.click();
             Driver.wait(2);
             // Driver.closeDriver();
         }else if (role.equals("User")) {
-            iAmOnHomePage();
-            homePage.username.sendKeys(ConfigurationReader.getProperty("UserUsername"));
-            homePage.password.sendKeys(ConfigurationReader.getProperty("UserPassword"));
-            Driver.waitForVisibility(homePage.cancelButton,5);
-            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", homePage.cancelButton.isDisplayed());
+           // iAmOnHomePage();
+            landingPage.username.sendKeys(ConfigurationReader.getProperty("UserUsername"));
+            landingPage.password.sendKeys(ConfigurationReader.getProperty("UserPassword"));
+            Driver.waitForVisibility(landingPage.cancelButton,5);
+            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", landingPage.cancelButton.isDisplayed());
             System.out.println("Cancel button is Displayed");
-            homePage.submit.click();
+            landingPage.submit.click();
             Driver.wait(2);
             // Driver.closeDriver();
 
         }else if (role.equals("Manager")) {
-            iAmOnHomePage();
-            homePage.username.sendKeys(ConfigurationReader.getProperty("ManagerUsername"));
-            homePage.password.sendKeys(ConfigurationReader.getProperty("ManagerPassword"));
-            Driver.waitForVisibility(homePage.cancelButton,5);
-            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", homePage.cancelButton.isDisplayed());
+           // iAmOnHomePage();
+            landingPage.username.sendKeys(ConfigurationReader.getProperty("ManagerUsername"));
+            landingPage.password.sendKeys(ConfigurationReader.getProperty("ManagerPassword"));
+            Driver.waitForVisibility(landingPage.cancelButton,5);
+            Assert.assertTrue("Cancel button is  not avilable before submit button,test failed!", landingPage.cancelButton.isDisplayed());
             System.out.println("Cancel button is Displayed");
-            homePage.submit.click();
+            landingPage.submit.click();
             Driver.wait(2);
             // Driver.closeDriver();
         }

@@ -51,7 +51,7 @@ public class Hooks {
         //close browser, close DB connection, close tunnel,capture screenshot of the error, etc..
         //this is a hook after
         //runs automatically after every test
-       // Driver.closeDriver();
+       Driver.closeDriver();
         System.out.println(":::(^_^) End of test execution (*_*):::");
     }
 }
